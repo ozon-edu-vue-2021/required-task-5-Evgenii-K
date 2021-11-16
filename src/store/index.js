@@ -74,8 +74,8 @@ export default new Vuex.Store({
       const favorites = []
       state.products.forEach(product => {
         if (state.favorites.includes(product.id)) {
-          const { id, dish, price, img } = product
-          favorites.push({ id, dish, price, img })
+          const { id, dish, price, img, description } = product
+          favorites.push({ id, dish, price, img, description })
         }
           
       })

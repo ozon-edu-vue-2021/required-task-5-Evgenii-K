@@ -4,14 +4,14 @@
       :class="$style.button"
       @click="toggleFavorites"
     >
-      {{ !isFavorite ? 'В избранное' : 'Убрать из избранного'}}
+      {{ !isFavorite ? 'В избранное' : 'Удалить из избранного'}}
     </button>
     <div>|</div>
     <button 
       :class="$style.button"
       @click="remove"
     >
-      Удалить
+      Удалить из корзины
     </button>
   </div>
 </template>
@@ -52,6 +52,9 @@ export default {
   display: inline-flex;
 }
 .button {
+  border: none;
+  background-color: #fff;
+  font-size: 16px;
   color: #e53659;
 }
 .button:hover {

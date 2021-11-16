@@ -1,6 +1,6 @@
 <template>
   <button 
-    :class="$style.button"
+    :class="[$style.button, $attrs.class]"
     v-on="listeners"
   >
     <slot/>
@@ -37,7 +37,6 @@ export default {
   cursor: pointer;
   transition: 0.2s ease-in;
   text-align: center;
-  max-width: max-content;
   flex-shrink: 0;
 }
 .button:hover {

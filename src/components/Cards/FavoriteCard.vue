@@ -5,17 +5,19 @@
       :src="require(`@/assets/images/${product.img}`)" 
       alt="img-item" 
     />
-    <div
-      :class="$style.card__info"
-    >
-      {{ product.dish }}
-      {{ product.price }}
+    <div :class="$style.card__info__wrapper">
+      <div :class="$style.card__info">
+        <h3>{{ product.dish }}</h3>
+        <span>{{ product.description }}</span>
+        <h2>{{ product.price }} &#8381;</h2>
+      </div>
     </div>
-    <base-button
-      @click="toggleFavorites"
-    >
-      Удалить из избранного
-    </base-button>
+    <div :class="$style.card__info__button">    
+      <base-button @click="toggleFavorites">
+        Удалить из избранного
+      </base-button>
+    </div>
+
   </div>
 </template>
 
@@ -27,10 +29,6 @@ export default {
   name: 'FavoriteCard',
   components: {
     BaseButton,
-  },
-  data() {
-    return {
-    }
   },
   props: {
     product: {
@@ -59,10 +57,23 @@ export default {
   padding: 10px;
 }
 .card__image {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   align-self: center;
   margin-bottom: 5px;
 }
-.card__info {}
+.card__info__wrapper {
+  height: 100%;
+  padding: 20px;
+}
+.card__info {
+  height: 100%;
+  display: grid;
+  align-content: space-between;
+}
+.card__info__button {
+  height: 100%;
+  display: grid;
+  align-content: center;
+}
 </style>

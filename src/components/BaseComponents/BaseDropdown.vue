@@ -42,7 +42,7 @@ export default {
 
 <style module>
 .drop__down__toggle{
-  width: 100px;
+  width: 50px;
   position: relative;
 }
 .drop__down__content {

@@ -1,13 +1,10 @@
 <template>
 <div>
-  <div 
-    id="nav"
-    :class="$style.nav"
-  >
+  <nav :class="$style.nav">
     <router-link to="/">Каталог товаров</router-link>
     <router-link to="/cart">Корзина</router-link>
     <router-link to="/favorites">Избранное</router-link>
-  </div>
+  </nav>
   <router-view />
 </div>
 </template>
@@ -37,8 +34,7 @@ export default {
   font-weight: 600;
   color: black;
 }
-
-.nav a:active {
-  color: #e53659
+.router-link-exact-active {
+  color: red;
 }
 </style>

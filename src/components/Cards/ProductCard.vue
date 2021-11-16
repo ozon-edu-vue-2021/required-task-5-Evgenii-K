@@ -19,9 +19,7 @@
         :selected="count"
         @update="updateCount"
       />
-      <base-button
-        @click="addToCart"
-      >
+      <base-button @click="addToCart">
         В корзину
       </base-button>
     </div>
@@ -85,7 +83,7 @@ export default {
   flex-direction: column;
   align-items: left;
   justify-content: space-between;
-  min-height: 340px;
+  min-height: 410px;
   background-color: #fff;
 }
 .card__image {
