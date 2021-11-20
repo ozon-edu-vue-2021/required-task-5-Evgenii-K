@@ -68,8 +68,6 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    getProduct: state => state.products,
-    getFavorites: state => state.favorites,
     getFavoritesItems: state => {
       const favorites = []
       state.products.forEach(product => {
@@ -81,7 +79,6 @@ export default new Vuex.Store({
       })
       return favorites
     },
-    getCart: state => state.itemsInCart,
     getCountProductsInCart: (state, { getItemChecked }) => getItemChecked.length,
     getPrice: (state, { getItemChecked }) => 
       getItemChecked.reduce((res, cur) => res + state.itemsInCart[cur].price, 0),

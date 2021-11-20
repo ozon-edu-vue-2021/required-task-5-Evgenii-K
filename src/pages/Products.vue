@@ -2,21 +2,18 @@
   <div>
     <h1>Каталог товаров</h1>
     <div :class="$style.products__wrapper">
-      <div
-        v-for="product in getProduct"
-        :key="product.id"
-      >
-        <product-card
-          :product="product"
-        />
+    <product-card
+      :product="product"
+      v-for="product in products"
+      :key="product.id"
+    />
       </div>
-    </div>
   </div>
 </template>
 
 <script>
 import ProductCard from '../components/Cards/ProductCard'
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: 'ProductsPage',
@@ -24,7 +21,7 @@ export default {
     ProductCard,
   },
   computed: {
-    ...mapGetters(['getProduct'])
+    ...mapState(['products'])
   },
 }
 </script>

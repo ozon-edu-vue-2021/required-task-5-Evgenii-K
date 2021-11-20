@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'changeItem',
@@ -39,9 +39,9 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(['getFavorites']),
+    ...mapState(['favorites']),
     isFavorite() {
-      return this.getFavorites.includes(this.id)
+      return this.favorites.includes(this.id)
     },
   }
 }

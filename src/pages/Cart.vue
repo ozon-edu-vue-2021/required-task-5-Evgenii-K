@@ -13,7 +13,7 @@
           :class="$style.cart__products"
         >
           <basket-card 
-            v-for="product in getCart"
+            v-for="product in itemsInCart"
             :key="product.id"
             :product="product"
           />
@@ -28,7 +28,7 @@
 import BasketCard from '../components/Cards/BasketCard.vue'
 import CheckoutCart from '../components/Cards/CheckoutCart.vue'
 import SelectAll from '../components/SelectAll.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'Cart',
@@ -39,9 +39,11 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getCart', 
       'getCountProductsInCart'
     ]),
+    ...mapState([
+      'itemsInCart',
+    ])
   },
 }
 </script>

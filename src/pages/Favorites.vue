@@ -2,14 +2,11 @@
   <div>
     <h1>Избранное</h1>
     <div :class="$style.favorites__wrapper">
-      <div
-        v-for="product in getFavoritesItems"
-        :key="product.id"
-      >
-        <favorite-card
-          :product="product"
-        />
-      </div>
+    <favorite-card
+      :product="product"
+      v-for="product in getFavoritesItems"
+      :key="product.id"
+    />
     </div>
   </div>
 </template>

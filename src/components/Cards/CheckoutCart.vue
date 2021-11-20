@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapState} from 'vuex'
 import BaseButton from '../BaseComponents/BaseButton.vue'
 
 export default {
@@ -31,8 +31,8 @@ export default {
   methods: {
     checkout () {
       let result = 'Ваш заказ: \n\n'
-      for(let id in this.getCart) {
-        const {dish, count, price, checked} = this.getCart[id]
+      for(let id in this.itemsInCart) {
+        const {dish, count, price, checked} = this.itemsInCart[id]
         if(checked) {
           result = `${result}${dish} | Количество: ${count} | Общая стоимость: ${count * price}\n`
         }
@@ -43,10 +43,12 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getCart',
       'getTotalPrice', 
       'getCountProductsInCart',
       'getPrice',
+    ]),
+    ...mapState([
+      'itemsInCart',
     ])
   }
 }

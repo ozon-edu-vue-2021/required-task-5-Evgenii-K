@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import BaseButton from '../BaseComponents/BaseButton.vue'
 import BaseMultiSelect from '../BaseComponents/BaseMultiSelect.vue'
 
@@ -63,9 +63,9 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(['getFavorites']),
+    ...mapState(['favorites']),
     isFavorite() {
-      return this.getFavorites.includes(this.product.id)
+      return this.favorites.includes(this.product.id)
               ? this.$style.card__active
               : ''
     }
